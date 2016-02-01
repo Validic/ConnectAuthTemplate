@@ -20,7 +20,11 @@ function SetConsumerName() {
 function SetConsumerLogo() {
   var encodedLogoURL = GetURLParameter("logo_url");
   var consumerLogoURL =  decodeURIComponent(encodedLogoURL);
-  $("#consumer-logo").html("<img src='" + consumerLogoURL + "' alt='Consumer Logo Alt Text'>")
+  if (encodedLogoURL) {
+    $("#consumer-logo").html("<img src='" + consumerLogoURL + "' alt='Consumer Logo Alt Text'>");
+  } else {
+    $("#sharing-logos").hide();
+  }
 }
 
 $(document).ready(function() {
